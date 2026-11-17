@@ -1,0 +1,19 @@
+﻿store_id,store_name,manager,region,city,tier
+ST01,Bảo Ngọc Ba Đình,Nguyễn Văn Tuấn,Miền Bắc,Hà Nội,Tier 1
+ST02,Bảo Ngọc Cầu Giấy,Trần Thị Mai,Miền Bắc,Hà Nội,Tier 1
+ST03,Bảo Ngọc Đống Đa,Lê Hoàng Long,Miền Bắc,Hà Nội,Tier 2
+ST04,Bảo Ngọc Hai Bà Trưng,Phạm Quốc Bảo,Miền Bắc,Hà Nội,Tier 2
+ST05,Bảo Ngọc Thanh Xuân,Vũ Hải Đăng,Miền Bắc,Hà Nội,Tier 2
+ST06,Bảo Ngọc Hoàn Kiếm,Đỗ Thu Trang,Miền Bắc,Hà Nội,Tier 1
+ST07,Bảo Ngọc Hà Đông,Nguyễn Thanh Tùng,Miền Bắc,Hà Nội,Tier 2
+ST08,Bảo Ngọc Nam Từ Liêm,Hồ Minh Quân,Miền Bắc,Hà Nội,Tier 2
+ST09,Bảo Ngọc Bắc Từ Liêm,Hoàng Kim Oanh,Miền Bắc,Hà Nội,Tier 2
+ST10,Bảo Ngọc Hải Phòng,Bùi Đức Thịnh,Miền Bắc,Hải Phòng,Tier 2
+ST11,Bảo Ngọc Quảng Ninh,Võ Thị Hằng,Miền Bắc,Quảng Ninh,Tier 2
+ST12,Bảo Ngọc Bắc Ninh,Lâm Quốc Hưng,Miền Bắc,Bắc Ninh,Tier 2
+ST13,Bảo Ngọc Đà Nẵng,Trương Ngọc Lan,Miền Trung,Đà Nẵng,Tier 1
+ST14,Bảo Ngọc Huế,Phan Hữu Nghĩa,Miền Trung,Huế,Tier 2
+ST15,Bảo Ngọc Nha Trang,Đặng Thị Thùy,Miền Trung,Khánh Hòa,Tier 2
+ST16,Bảo Ngọc Quận 1,Ngô Gia Huy,Miền Nam,TP.HCM,Tier 1
+ST17,Bảo Ngọc Tân Bình,Lý Cẩm Nhung,Miền Nam,TP.HCM,Tier 2
+ST18,Bảo Ngọc Cần Thơ,Huỳnh Tấn Đạt,Miền Nam,Cần Thơ,Tier 2

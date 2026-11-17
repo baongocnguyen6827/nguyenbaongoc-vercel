@@ -1,0 +1,60 @@
+{
+  "report_period": {
+    "period_name": "Tháng 10/2026",
+    "start_date": "2026-10-01",
+    "end_date": "2026-10-31",
+    "days": 31
+  },
+  "comparison_period": {
+    "period_name": "Tháng 09/2026",
+    "start_date": "2026-09-01",
+    "end_date": "2026-09-30",
+    "days": 30
+  },
+  "cleaning_rules": [
+    {
+      "rule_id": "RULE-DEDUP",
+      "name": "Lọc trùng giao dịch",
+      "description": "Loại bỏ các dòng có cùng transaction_id xuất hiện từ lần thứ 2 trở đi.",
+      "action": "Drop exact duplicates on transaction_id"
+    },
+    {
+      "rule_id": "RULE-CANCEL",
+      "name": "Loại bỏ đơn bị hủy",
+      "description": "Tách các đơn hàng có trạng thái CANCELLED ra khỏi doanh thu và giá vốn.",
+      "action": "Exclude status == 'CANCELLED'"
+    },
+    {
+      "rule_id": "RULE-RETURN",
+      "name": "Xử lý hàng đổi trả",
+      "description": "Ghi nhận dòng RETURNED để giảm trừ doanh thu gộp (Net Revenue = Gross Sales - Returns) và hoàn nhập giá vốn (Net COGS = Sold COGS - Returned COGS).",
+      "action": "Deduct from Revenue and COGS"
+    },
+    {
+      "rule_id": "RULE-PERIOD-SYNC",
+      "name": "Đồng bộ chuẩn hóa kỳ thời gian",
+      "description": "Chỉ lấy các giao dịch có transaction_date nằm trong khoảng [2026-10-01, 2026-10-31]. Chuẩn hóa tốc độ bán hàng theo ngày khi so với tháng 9 (31 ngày vs 30 ngày).",
+      "action": "Filter transaction_date between start_date and end_date"
+    }
+  ],
+  "calculation_formulas": {
+    "gross_sales": "Tổng total_amount của các đơn COMPLETED",
+    "returns_amount": "Tổng total_amount của các đơn RETURNED",
+    "net_revenue": "Gross Sales - Returns Amount",
+    "cogs": "Tổng (unit_cost * quantity) của COMPLETED - RETURNED",
+    "gross_profit": "Net Revenue - Net COGS",
+    "gross_margin_pct": "(Gross Profit / Net Revenue) * 100",
+    "revenue_target_pct": "(Net Revenue / Target Revenue) * 100",
+    "gp_target_pct": "(Gross Profit / Target Gross Profit) * 100",
+    "return_rate_pct": "(Returns Amount / (Gross Sales + Returns Amount)) * 100",
+    "revenue_growth_pct": "((Net Revenue Oct / Net Revenue Sep) - 1) * 100 (đã điều chỉnh số ngày)"
+  },
+  "audit_thresholds": {
+    "high_return_warning_pct": 8.0,
+    "high_return_critical_pct": 12.0,
+    "target_miss_warning_pct": 85.0,
+    "target_miss_critical_pct": 75.0,
+    "negative_growth_critical_pct": -10.0,
+    "margin_drop_warning_pct": -3.0
+  }
+}
